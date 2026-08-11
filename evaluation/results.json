@@ -1,0 +1,340 @@
+{
+  "dataset": "C:\\Users\\LENOVO\\Music\\ASTRION-RAG\\evaluation\\eval_dataset.json",
+  "report": {
+    "generated_at": "2026-08-11T11:22:31.095341+00:00",
+    "total_questions": 14,
+    "completed": 2,
+    "failed": 12,
+    "failed_question_ids": [
+      "q01",
+      "q02",
+      "q03",
+      "q04",
+      "q05",
+      "q07",
+      "q08",
+      "q09",
+      "q10",
+      "q11",
+      "q12",
+      "q13"
+    ],
+    "retrieval_questions_scored": 1,
+    "retrieval_hits": 0,
+    "retrieval_hit_rate": 0.0,
+    "average_latency": 0.0186,
+    "minimum_latency": 0.0168,
+    "maximum_latency": 0.0205,
+    "groundedness": null,
+    "citation_score": null,
+    "notes": "groundedness and citation_score are reserved for manual evaluation. retrieval_hit_rate counts items with non-empty expected_sources where at least one expected filename appears in retrieved sources."
+  },
+  "results": [
+    {
+      "id": "q06",
+      "question": "What should operators review quarterly?",
+      "status": "ok",
+      "answer": "I could not find enough information in the provided documents to answer this.",
+      "expected_answer": "Remote-access paths.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0168,
+      "latency": {
+        "retrieval_seconds": 0.0163,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0168
+      },
+      "retrieval_count": 0,
+      "retrieved_chunks": [],
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q14",
+      "question": "Which Kubernetes CIDR does the production cluster use?",
+      "status": "ok",
+      "answer": "I could not find enough information in the provided documents to answer this.",
+      "expected_answer": "The documents do not contain this information.",
+      "retrieved_sources": [],
+      "expected_sources": [],
+      "retrieval_hit": null,
+      "total_latency": 0.0205,
+      "latency": {
+        "retrieval_seconds": 0.02,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0205
+      },
+      "retrieval_count": 0,
+      "retrieved_chunks": [],
+      "groundedness": null,
+      "citation_score": null
+    }
+  ],
+  "failures": [
+    {
+      "id": "q01",
+      "question": "When is a firewall useful according to the documents?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "A firewall is only useful when its rules match a written policy.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 6.696,
+      "latency": {
+        "retrieval_seconds": 6.6907,
+        "generation_seconds": 0.0,
+        "total_seconds": 6.696
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q02",
+      "question": "What are common sources of avoidable network security risk?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "Default-allow rules, unused open ports, and undocumented exceptions.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0378,
+      "latency": {
+        "retrieval_seconds": 0.0349,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0378
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q03",
+      "question": "What kind of authentication methods should be preferred?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "Phishing-resistant methods such as hardware keys or platform authenticators.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0212,
+      "latency": {
+        "retrieval_seconds": 0.0191,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0212
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q04",
+      "question": "Why do shared passwords and long-lived tokens increase risk?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "They increase blast radius when an account is stolen.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0199,
+      "latency": {
+        "retrieval_seconds": 0.018,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0199
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q05",
+      "question": "What should log collection include?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "Authentication failures and privilege changes.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0167,
+      "latency": {
+        "retrieval_seconds": 0.0148,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0167
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q07",
+      "question": "What unused remote-access items should be retired?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "Unused VPN profiles.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0214,
+      "latency": {
+        "retrieval_seconds": 0.0192,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0214
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q08",
+      "question": "What does document ingestion convert files into?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "Searchable text.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_document_processing.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0233,
+      "latency": {
+        "retrieval_seconds": 0.0211,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0233
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q09",
+      "question": "Why does PDF extraction preserve source and page numbers?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "So later answers can cite evidence.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_document_processing.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0239,
+      "latency": {
+        "retrieval_seconds": 0.0213,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0239
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q10",
+      "question": "Why does chunking use overlapping windows?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "So a sentence that crosses a boundary is not lost.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_document_processing.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0218,
+      "latency": {
+        "retrieval_seconds": 0.0197,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0218
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q11",
+      "question": "What must metadata keep for FAISS vectors?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "A one-to-one map from vector position to chunk text.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_document_processing.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0232,
+      "latency": {
+        "retrieval_seconds": 0.0213,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0232
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q12",
+      "question": "What does network security start with?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "Clear ownership of assets, identities, and data flows.",
+      "retrieved_sources": [],
+      "expected_sources": [
+        "sample_network_security.pdf"
+      ],
+      "retrieval_hit": false,
+      "total_latency": 0.0227,
+      "latency": {
+        "retrieval_seconds": 0.0198,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0227
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    },
+    {
+      "id": "q13",
+      "question": "What is the on-call phone number for the security operations center?",
+      "status": "failed",
+      "error": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "answer": "The language model request failed: GROQ_API_KEY is missing. Set it in the local .env file (not in source code).",
+      "expected_answer": "The documents do not contain this information.",
+      "retrieved_sources": [],
+      "expected_sources": [],
+      "retrieval_hit": null,
+      "total_latency": 0.0221,
+      "latency": {
+        "retrieval_seconds": 0.02,
+        "generation_seconds": 0.0,
+        "total_seconds": 0.0221
+      },
+      "retrieval_count": 0,
+      "groundedness": null,
+      "citation_score": null
+    }
+  ]
+}

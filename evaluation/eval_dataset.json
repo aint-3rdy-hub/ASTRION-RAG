@@ -1,0 +1,103 @@
+{
+  "description": "Grounded questions over the sample PDFs in data/documents/. expected_sources are filenames present in the FAISS metadata. groundedness and citation_score are left null for manual scoring.",
+  "items": [
+    {
+      "id": "q01",
+      "category": "grounded",
+      "question": "When is a firewall useful according to the documents?",
+      "expected_answer": "A firewall is only useful when its rules match a written policy.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q02",
+      "category": "grounded",
+      "question": "What are common sources of avoidable network security risk?",
+      "expected_answer": "Default-allow rules, unused open ports, and undocumented exceptions.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q03",
+      "category": "grounded",
+      "question": "What kind of authentication methods should be preferred?",
+      "expected_answer": "Phishing-resistant methods such as hardware keys or platform authenticators.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q04",
+      "category": "grounded",
+      "question": "Why do shared passwords and long-lived tokens increase risk?",
+      "expected_answer": "They increase blast radius when an account is stolen.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q05",
+      "category": "grounded",
+      "question": "What should log collection include?",
+      "expected_answer": "Authentication failures and privilege changes.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q06",
+      "category": "grounded",
+      "question": "What should operators review quarterly?",
+      "expected_answer": "Remote-access paths.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q07",
+      "category": "grounded",
+      "question": "What unused remote-access items should be retired?",
+      "expected_answer": "Unused VPN profiles.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q08",
+      "category": "grounded",
+      "question": "What does document ingestion convert files into?",
+      "expected_answer": "Searchable text.",
+      "expected_sources": ["sample_document_processing.pdf"]
+    },
+    {
+      "id": "q09",
+      "category": "grounded",
+      "question": "Why does PDF extraction preserve source and page numbers?",
+      "expected_answer": "So later answers can cite evidence.",
+      "expected_sources": ["sample_document_processing.pdf"]
+    },
+    {
+      "id": "q10",
+      "category": "grounded",
+      "question": "Why does chunking use overlapping windows?",
+      "expected_answer": "So a sentence that crosses a boundary is not lost.",
+      "expected_sources": ["sample_document_processing.pdf"]
+    },
+    {
+      "id": "q11",
+      "category": "grounded",
+      "question": "What must metadata keep for FAISS vectors?",
+      "expected_answer": "A one-to-one map from vector position to chunk text.",
+      "expected_sources": ["sample_document_processing.pdf"]
+    },
+    {
+      "id": "q12",
+      "category": "grounded",
+      "question": "What does network security start with?",
+      "expected_answer": "Clear ownership of assets, identities, and data flows.",
+      "expected_sources": ["sample_network_security.pdf"]
+    },
+    {
+      "id": "q13",
+      "category": "no_evidence",
+      "question": "What is the on-call phone number for the security operations center?",
+      "expected_answer": "The documents do not contain this information.",
+      "expected_sources": []
+    },
+    {
+      "id": "q14",
+      "category": "no_evidence",
+      "question": "Which Kubernetes CIDR does the production cluster use?",
+      "expected_answer": "The documents do not contain this information.",
+      "expected_sources": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-11T11:22:31.095341+00:00",
+  "total_questions": 14,
+  "completed": 2,
+  "failed": 12,
+  "failed_question_ids": [
+    "q01",
+    "q02",
+    "q03",
+    "q04",
+    "q05",
+    "q07",
+    "q08",
+    "q09",
+    "q10",
+    "q11",
+    "q12",
+    "q13"
+  ],
+  "retrieval_questions_scored": 1,
+  "retrieval_hits": 0,
+  "retrieval_hit_rate": 0.0,
+  "average_latency": 0.0186,
+  "minimum_latency": 0.0168,
+  "maximum_latency": 0.0205,
+  "groundedness": null,
+  "citation_score": null,
+  "notes": "groundedness and citation_score are reserved for manual evaluation. retrieval_hit_rate counts items with non-empty expected_sources where at least one expected filename appears in retrieved sources."
+}
