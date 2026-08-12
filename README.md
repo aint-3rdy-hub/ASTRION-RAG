@@ -70,7 +70,9 @@ LangChain and LlamaIndex are intentionally unused. The pipeline is short enough 
 ## Project structure
 
 ```text
-app.py                      Streamlit demo
+app.py                      Optional Streamlit fallback
+api_server.py               FastAPI bridge for the premium UI
+web/                        Premium React console (Ask / Documents / Evaluation)
 requirements.txt            Pinned environment
 .env.example                GROQ_API_KEY / GROQ_MODEL placeholders
 prompts/rag_prompt.txt      Grounded-answering prompt
@@ -171,13 +173,31 @@ Last successful ingest of the sample PDFs:
 - Chunks created: 5
 - Embedding dimension: 384
 
-## How to run the Streamlit application
+## How to run the application UI
+
+Primary UI is the premium React console in `web/`, backed by FastAPI.
+
+Terminal 1 — API:
+
+```powershell
+.\.venv\Scripts\python.exe api_server.py
+```
+
+Terminal 2 — frontend:
+
+```powershell
+cd web
+npm install
+npm run dev
+```
+
+Open http://localhost:5173
+
+Pages: Ask (live RAG), Documents (index inventory), Evaluation (report.json). Streamlit remains as a minimal fallback:
 
 ```powershell
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
-
-The UI shows indexed document and chunk counts, embedding model, LLM model, the answer, citations, retrieved chunks, a retrieval trace (source, page, chunk ID, score), and retrieval / generation / total latency.
 
 ## How to run evaluation
 
@@ -350,11 +370,21 @@ Two dataset items (`q13`, `q14`) are intentional no-evidence questions used to d
 .\.venv\Scripts\python.exe -m src.rag "Which Kubernetes CIDR does the production cluster use?"
 ```
 
-7. Open the UI:
+7. Open the premium UI:
 
 ```powershell
-.\.venv\Scripts\python.exe -m streamlit run app.py
+.\.venv\Scripts\python.exe api_server.py
 ```
+
+In another terminal:
+
+```powershell
+cd web
+npm install
+npm run dev
+```
+
+Then open http://localhost:5173
 
 8. Run evaluation after Groq is configured:
 

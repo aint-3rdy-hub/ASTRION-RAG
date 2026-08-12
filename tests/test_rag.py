@@ -518,6 +518,23 @@ def test_rag_groq_api_failure(tmp_path: Path) -> None:
     assert "failed" in result["answer"].lower()
 
 
+def test_rag_groq_config_uses_extractive_fallback(tmp_path: Path) -> None:
+    pipeline = _pipeline(
+        tmp_path,
+        _FailingGenerator(
+            GenerationError(
+                "GROQ_API_KEY is missing. Set it in the local .env file.",
+                kind="config",
+            )
+        ),
+    )
+    result = pipeline.answer("firewall policy")
+    assert result["retrieval_count"] > 0
+    assert "extractive" in result["answer"].lower()
+    assert "GROQ_API_KEY" in result["answer"]
+    assert result["sources"][0]["source"] == "network_security.pdf"
+
+
 def test_rag_does_not_log_api_keys() -> None:
     assert "gsk_live_secret" not in redact_secrets("key=gsk_live_secret leftover")
     assert "[REDACTED]" in redact_secrets("gsk_live_secret")

@@ -6,3 +6,6 @@ __pycache__/
 data/index/
 .streamlit/
 .vscode/
+web/node_modules/
+web/dist/
+_ui_import/

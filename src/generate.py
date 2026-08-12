@@ -117,6 +117,15 @@ def _api_key() -> str:
     return key
 
 
+def groq_is_configured() -> bool:
+    """Return True when a non-placeholder GROQ_API_KEY is present."""
+    try:
+        _api_key()
+        return True
+    except GenerationError:
+        return False
+
+
 class Generator:
     """Call Groq with the version-controlled RAG prompt."""
 
@@ -178,6 +187,8 @@ class Generator:
                 "The language model is rate-limited. Please wait and try again.",
                 kind="rate_limit",
             ) from exc
+        except GenerationError:
+            raise
         except (APIConnectionError, APIStatusError) as exc:
             logger.error("Groq API status/connection error: %s", type(exc).__name__)
             raise GenerationError(

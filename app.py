@@ -1,4 +1,13 @@
-"""NEXUS-RAG Streamlit demo. Never display API keys or stack traces."""
+"""Legacy Streamlit entrypoint.
+
+The primary ASTRION UI is the premium React console in ``web/``.
+Prefer:
+
+    .\\.venv\\Scripts\\python.exe api_server.py
+    cd web && npm run dev
+
+This Streamlit page remains as a minimal fallback for quick checks.
+"""
 
 from __future__ import annotations
 
@@ -19,7 +28,7 @@ from src.rag import RAGPipeline, configure_logging
 
 configure_logging()
 
-st.set_page_config(page_title="NEXUS-RAG", layout="centered")
+st.set_page_config(page_title="ASTRION RAG", layout="wide")
 
 
 def _index_stats() -> dict[str, Any]:
@@ -111,7 +120,6 @@ def render_result(result: dict[str, Any]) -> None:
     else:
         st.subheader("Answer")
         st.write(answer)
-
         st.subheader("Sources")
         if sources:
             for item in sources:
@@ -152,8 +160,12 @@ def render_result(result: dict[str, Any]) -> None:
 
 
 def main() -> None:
-    st.title("NEXUS-RAG")
-    st.caption("Citation-Grounded Document Intelligence")
+    st.title("ASTRION RAG")
+    st.caption("Fallback Streamlit UI — use the premium console in web/ for the full experience.")
+    st.info(
+        "Primary UI: start `python api_server.py`, then `cd web && npm run dev`, "
+        "and open http://localhost:5173"
+    )
 
     stats = _index_stats()
     c1, c2, c3, c4 = st.columns(4)

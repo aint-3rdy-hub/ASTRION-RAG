@@ -44,6 +44,20 @@ def _generation_user_message(exc: GenerationError) -> str:
     return redact_secrets(str(exc)) or "The language model request failed. Please try again."
 
 
+def _extractive_answer(hits: list) -> str:
+    """Build a citation-grounded answer from retrieved text when Groq is unavailable."""
+    top = hits[0]
+    lines = [
+        top.text.strip(),
+        "",
+        f"[1] {top.source} (page {top.page}) — `{top.chunk_id}`",
+        "",
+        "Note: Groq is not configured, so this is an extractive answer from the "
+        "top retrieved chunk. Set GROQ_API_KEY in `.env` for full LLM generation.",
+    ]
+    return "\n".join(lines)
+
+
 def configure_logging() -> None:
     level = getattr(logging, LOG_LEVEL, logging.INFO)
     logging.basicConfig(
@@ -160,6 +174,26 @@ class RAGPipeline:
             )
         except GenerationError as exc:
             retrieval_s = getattr(self, "_last_retrieval_seconds", 0.0)
+            retrieval = self._last_retrieval
+            # Keep the demo usable without Groq: return cited extractive evidence.
+            if (
+                exc.kind == "config"
+                and retrieval is not None
+                and not retrieval.empty
+                and retrieval.hits
+            ):
+                logger.warning(
+                    "Groq unavailable (%s); returning extractive grounded answer",
+                    redact_secrets(str(exc)),
+                )
+                return _payload(
+                    cleaned,
+                    _extractive_answer(retrieval.hits),
+                    retrieval,
+                    retrieval_seconds=retrieval_s,
+                    generation_seconds=0.0,
+                    total_seconds=time.perf_counter() - started,
+                )
             message = _generation_user_message(exc)
             logger.error(
                 "Groq generation failure kind=%s message=%s",
@@ -172,7 +206,7 @@ class RAGPipeline:
                 retrieval_s,
                 0.0,
                 message,
-                retrieval=self._last_retrieval,
+                retrieval=retrieval,
             )
         except Exception as exc:  # noqa: BLE001
             if DEBUG:
